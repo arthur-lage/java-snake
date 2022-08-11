@@ -1,9 +1,6 @@
-import jaco.mp3.player.MP3Player;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.io.File;
 import java.util.Random;
 
 public class GamePanel extends JPanel implements ActionListener {
@@ -64,8 +61,8 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void createApple () {
-        appleX = random.nextInt((int)(SCREEN_WIDTH/UNIT_SIZE))*UNIT_SIZE;
-        appleY = random.nextInt((int)(SCREEN_HEIGHT/UNIT_SIZE))*UNIT_SIZE;
+        appleX = random.nextInt(SCREEN_WIDTH/UNIT_SIZE)*UNIT_SIZE;
+        appleY = random.nextInt(SCREEN_HEIGHT/UNIT_SIZE)*UNIT_SIZE;
     }
 
     public void draw(Graphics g) {
@@ -104,18 +101,10 @@ public class GamePanel extends JPanel implements ActionListener {
         }
 
         switch (direction) {
-            case 'W':
-                y[0] = y[0] - UNIT_SIZE;
-                break;
-            case 'D':
-                x[0] = x[0] + UNIT_SIZE;
-                break;
-            case 'S':
-                y[0] = y[0] + UNIT_SIZE;
-                break;
-            case 'A':
-                x[0] = x[0] - UNIT_SIZE;
-                break;
+            case 'W' -> y[0] = y[0] - UNIT_SIZE;
+            case 'D' -> x[0] = x[0] + UNIT_SIZE;
+            case 'S' -> y[0] = y[0] + UNIT_SIZE;
+            case 'A' -> x[0] = x[0] - UNIT_SIZE;
         }
     }
 
